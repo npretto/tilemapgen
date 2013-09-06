@@ -6,14 +6,14 @@ Demo here: http://lordkryss.github.io/tilemapgen/ (really bad) source of the dem
 
 How to use
 ==========
-```haxe
+```
 var generator = new LevelGenerator();
 var map:Map2d = generator.getMap(50, 50);
 ```
 
 Example use on haxeflixel:
 
-```haxe
+```
 var generator = new LevelGenerator();
 		map = generator.getMap(widthInTiles, heightInTiles);
 		tilemap = new MyTilemap();
