@@ -10,6 +10,7 @@ class LevelGenerator
 	public var minToSetAlive:Int;
 	public var deathLimit:Int;
 
+
 	public function new(chanceToStartAlive:Float = 0.4,minToSetAlive = 4,deathLimit = 4) 
 	{
 		this.chanceToStartAlive = chanceToStartAlive;

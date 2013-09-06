@@ -1,14 +1,17 @@
 package tilemapgen;
-import flash.geom.Point;
 
 /**
  * ...
  * @author lordkryss
  */
+
+ typedef PointDef = { x:Int, y:Int };
+ 
 class Map2d
 {
 	public var width:Int;
 	public var height:Int;
+	
 	
 	public static inline var COLLIDE_INDEX:Int = 1; //everything >= this is a wall
 	
@@ -67,9 +70,9 @@ class Map2d
 			return (get(x, y) < COLLIDE_INDEX );
 	}
 	
-	public function findWalkable(x:Int, y:Int):Point
+	public function findWalkable(x:Int, y:Int):PointDef
 	{
-		var p = new Point(x, y);
+		var p:PointDef = {x:x,y:y};
 		while (!isWalkable(Std.int(p.x), Std.int(p.y)))
 		{
 			p.x += (Math.random() < 0.5 ? 1 : -1);
