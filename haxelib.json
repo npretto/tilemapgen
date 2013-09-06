@@ -1,0 +1,10 @@
+{
+	"name": "tilemapgen",
+	"url" : "http://haxeflixel.com",
+	"license": "na",
+	"tags": ["tilemap","map","levelgeneration","2d"],
+	"description": "2d tilemap generator",
+	"version": "1.0.0",
+	"releasenote": "starting version",
+	"contributors": ["lordkryss"]
+}
