@@ -16,18 +16,18 @@ Example use on haxeflixel:
 
 ```
 var generator = new LevelGenerator();
-		map = generator.getMap(widthInTiles, heightInTiles);
-		tilemap = new MyTilemap();
-		tilemap.widthInTiles = this.widthInTiles;
-		tilemap.heightInTiles = this.heightInTiles;
-		tilemap.loadMap(
-			map.to2d(),
-			"assets/img/autotiles.png",
-			24,
-			24,
-			FlxTilemap.AUTO,
-			1,
-			0,
-			1
-		);
+map = generator.getMap(widthInTiles, heightInTiles);
+tilemap = new MyTilemap();
+tilemap.widthInTiles = widthInTiles;
+tilemap.heightInTiles = heightInTiles;
+tilemap.loadMap(
+	map.to2d(),
+	"assets/img/autotiles.png",
+	24,
+	24,
+	FlxTilemap.AUTO,
+	1,
+	0,
+	1
+);
 ```
