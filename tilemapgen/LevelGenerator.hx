@@ -6,7 +6,7 @@ package tilemapgen;
  */
 class LevelGenerator
 {
-	private var chanceToStartAlive:Float;
+	public var chanceToStartAlive:Float;
 	public var minToSetAlive:Int;
 	public var deathLimit:Int;
 
