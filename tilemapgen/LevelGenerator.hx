@@ -18,15 +18,35 @@ class LevelGenerator
 		this.deathLimit = deathLimit;
 	}
 	
-	public function getMap(width:Int = 40, height:Int = 40, steps:Int = 3 ):Map2d
+	public function getMap(width:Int = 40, height:Int = 40, steps:Int = 3, forceBorder:Bool = false ):Map2d
 	{
 		var map = new Map2d(width, height);
 		randomize(map);
 		for (i in 0...steps)
 		{
 			map = doStep(map, minToSetAlive, deathLimit);
+			if (forceBorder)
+			{
+				putBorder(map);
+			}
 		}
 		return map;
+	}
+	
+	public function putBorder(map:Map2d) 
+	{
+		var w:Int = map.width;
+		var h:Int = map.height;
+		for (x in 0...w)
+		{
+			map.set(x, 0, 1);
+			map.set(x, h-1, 1);
+		}
+		for (y in 0...h)
+		{
+			map.set(0, y, 1);
+			map.set(w-1, y, 1);
+		}
 	}
 	
 	function doStep(map:Map2d, minToSetAlive:Int, deathLimit:Int) 

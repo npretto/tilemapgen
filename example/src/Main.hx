@@ -1,5 +1,6 @@
 package ;
 
+import com.bit101.components.CheckBox;
 import com.bit101.components.HSlider;
 import com.bit101.components.NumericStepper;
 import com.bit101.components.Label;
@@ -30,6 +31,7 @@ class Main extends Sprite
 	var birthLimit:NumericStepper;
 	var deathLimit:NumericStepper;
 	var startChance:HSlider;
+	var forceBorder:CheckBox;
 	
 	var SIZE = 600;
 	var chanceLabel:Label;
@@ -47,12 +49,15 @@ class Main extends Sprite
 		generator = new LevelGenerator();
 		sprite = new Sprite();
 		
+		var g:Graphics = Lib.current.graphics;
+		g.beginFill(0xFFafafaf);
+		g.drawRect(0, y, Lib.current.stage.stageWidth, Lib.current.stage.stageHeight);
+		g.endFill();
+		
 		addChild(sprite);
 		sprite.x = Lib.current.stage.stageWidth / 2 - SIZE/2;
 		sprite.y = Lib.current.stage.stageHeight-SIZE-20;
-		stage.color = 0xFFafafaf;
-		
-		//renderTilemap(sprite, generator.getMap(30, 30, 3));
+		//stage.color = 0xFFafafaf;
 		
 		new Label(this, 10, 10, "Number of steps:");
 		numSteps = new NumericStepper(this, 100, 10, update);
@@ -81,7 +86,9 @@ class Main extends Sprite
 		startChance.maximum = 1;
 		startChance.minimum = 0;		
 		
-		new PushButton(this, 500, 10, "GENERATE", generate);
+		forceBorder = new CheckBox(this, 500, 10, "Force borders", update);
+		
+		new PushButton(this, 500, 30, "GENERATE", generate);
 		
 		update(null);
 		generate(null);
@@ -89,7 +96,7 @@ class Main extends Sprite
 	
 	function generate(e:MouseEvent) 
 	{
-		renderTilemap(sprite, generator.getMap(50, 50, Std.int(numSteps.value)),SIZE,SIZE);
+		renderTilemap(sprite, generator.getMap(50, 50, Std.int(numSteps.value),forceBorder.selected),SIZE,SIZE);
 	}
 	
 	function update(e:Event) 
