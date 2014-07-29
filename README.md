@@ -3,7 +3,7 @@ tilemapgen
 
 Basic tilemap generation based on http://gamedev.tutsplus.com/tutorials/implementation/cave-levels-cellular-automata/
 
-Demo here: http://lordkryss.github.io/tilemapgen/ (really bad) source of the demo in example/
+Demo here: http://npretto.github.io/tilemapgen/ (really bad) source of the demo in example/
 
 How to use
 ==========
